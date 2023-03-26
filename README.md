@@ -13,6 +13,9 @@ Google开发的jib**不依赖docker环境**也能**创建**docker或者OCI类型
 
 工具地址： [https://github.com/yuzd/jib](https://github.com/yuzd/jib)
 
+![image](https://dimg04.c-ctrip.com/images/0v53n12000at8qqsh5176.png)
+
+
 
 #### 工具使用
 它是一个纯粹构建镜像命令行工具,根据不同的功能有不同的参数，如下图
@@ -22,6 +25,8 @@ Google开发的jib**不依赖docker环境**也能**创建**docker或者OCI类型
 
 ###### macos平台
 ![image](https://dimg04.c-ctrip.com/images/0v54612000at8mbjb8108.png)
+
+
 
 
 
@@ -63,6 +68,10 @@ Google开发的jib**不依赖docker环境**也能**创建**docker或者OCI类型
     "/publish/RazorTestProject.dll"
   ],
   "ApplicationLayersCacheDirectory": "E:\\workspace\\cache",
+  "SkipExistingImages":true,
+  "IgnoreList":[
+    "支持正则"
+  ]
   "Env":{
       "env1":"value1"
   },
@@ -100,6 +109,8 @@ Google开发的jib**不依赖docker环境**也能**创建**docker或者OCI类型
 |Env  | 环境变量 | 可以不指定,容器启动指定也行 |
 |Ports  | 端口 | 可以不指定,容器启动指定也行 |
 |Volumes  | 共享目录 | 可以不指定,容器启动指定也行 |
+|SkipExistingImages  | 如果目标仓库有一模一样的镜像就不会上传 | 比对的是镜像sha256|
+|IgnoreList  | 要打包的目录里面可以排除某些文件 | 正则表达式 |
 
 
 #### tar格式镜像文件本地生成
@@ -142,5 +153,9 @@ json配置参数就少了推送相关的参数
 命令： jib.exe -deamon --configfile=demo.json
 ```
 
-和tar差不多
+json配置和tar差不多
+
+
+#### 写到最后
+
 
